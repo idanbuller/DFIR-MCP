@@ -24,7 +24,7 @@ It is highly recommended to use a dedicated Python virtual environment. This pro
 
 ```bash
 # Navigate to the project root directory
-cd /Users/ibuller/Desktop/Code/MCPs
+cd /Users/username/Desktop/Code/MCPs
 
 # Create a new virtual environment
 python3 -m venv venv
@@ -167,7 +167,7 @@ Handles interaction with the Timesketch timeline analysis platform.
 This workflow demonstrates how to combine the servers to analyze Windows Event Logs and Chrome browser history, then aggregate both timelines into a single Timesketch sketch for analysis.
 
 **Prompt:**
-> "I want to perform a full forensic analysis. First, create a new Timesketch sketch named 'Suspicious Activity Investigation'. Next, use Hayabusa to create a timeline from the event logs at `/Users/ibuller/Desktop/Code/RTR/Windows/20250916_024807/Triage/c/Windows/System32/winevt/logs`. Also, use Hindsight to analyze the Chrome history from `/Users/ibuller/Desktop/Code/RTR/Windows/20250916_024807/History`. Finally, upload both the Hayabusa and Hindsight timelines to the new Timesketch sketch you created, naming them 'Hayabusa EVTX Timeline' and 'Hindsight Browser Timeline' respectively."
+> "I want to perform a full forensic analysis. First, create a new Timesketch sketch named 'Suspicious Activity Investigation'. Next, use Hayabusa to create a timeline from the event logs at `/path/to/logs`. Also, use Hindsight to analyze the Chrome history from `/path/to/History`. Finally, upload both the Hayabusa and Hindsight timelines to the new Timesketch sketch you created, naming them 'Hayabusa EVTX Timeline' and 'Hindsight Browser Timeline' respectively."
 
 This single, powerful prompt will orchestrate the entire workflow, providing a unified view of the evidence for your investigation.
 

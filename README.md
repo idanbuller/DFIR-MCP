@@ -1,5 +1,7 @@
 # Unified Forensic Analysis MCP Toolkit
 
+![alt text](http://url/to/img.png)
+
 ## 1. Overview
 
 This project provides a powerful, unified toolkit for digital forensics and incident response (DFIR). It integrates several industry-standard open-source tools—**Chainsaw, Hayabusa, Hindsight, Plaso, and Timesketch**—into a cohesive system powered by the Model Context Protocol (MCP). This allows a single AI assistant to orchestrate complex analysis workflows across multiple tools, streamlining investigations and correlating data from different sources.
@@ -8,11 +10,11 @@ This repository is designed to be a shareable, all-in-one solution for a DFIR te
 
 ### Included Tools
 
-*   **Chainsaw:** For hunting threats in event logs using Sigma rules.
-*   **Hayabusa:** For fast and efficient Windows Event Log timeline generation and analysis.
-*   **Hindsight:** For deep analysis of web browser history.
-*   **Plaso:** For creating super timelines from a vast array of forensic artifacts.
-*   **Timesketch:** For collaborative timeline analysis and visualization.
+*   **[Chainsaw](https://github.com/WithSecureLabs/chainsaw)** For hunting threats in event logs using Sigma rules.
+*   **[Hayabusa](https://github.com/Yamato-Security/hayabusa)** For fast and efficient Windows Event Log timeline generation and analysis.
+*   **[Hindsight](https://github.com/obsidianforensics/hindsight)** For deep analysis of web browser history.
+*   **[Plaso](https://github.com/log2timeline/plaso)** For creating super timelines from a vast array of forensic artifacts.
+*   **[Timesketch](https://github.com/google/timesketch)** For collaborative timeline analysis and visualization.
 
 ## 2. Initial Project Setup
 

@@ -16,11 +16,30 @@ This repository is designed to be a shareable, all-in-one solution for a DFIR te
 *   **[Plaso](https://github.com/log2timeline/plaso)** For creating super timelines from a vast array of forensic artifacts.
 *   **[Timesketch](https://github.com/google/timesketch)** For collaborative timeline analysis and visualization.
 
-## 2. Initial Project Setup
+
+## 2. Dependencies
+
+Before you begin, ensure you have the following dependencies installed on your system.
+
+### System-Level Dependencies
+*   **Python 3.13:** The core runtime for all MCP servers and scripts.
+*   **Git:** Required for cloning the repository and managing versions.
+*   **Docker Desktop:** Required to easily run the backend services (PostgreSQL and Redis) needed by Timesketch. The standard Timesketch `docker-compose.yml` is the recommended way to start these services.
+
+### Python Packages
+All required Python packages are listed in the `requirements.txt` file and will be installed automatically during the setup process.
+
+### Binary Dependencies
+This project wraps several command-line tools. You must download their pre-compiled binaries and place them in the correct directories:
+
+*   **Chainsaw:** Download the appropriate binary for your system from the [Chainsaw Releases page](https://github.com/WithSecureLabs/chainsaw/releases) and place the executable at `servers/Chainsaw/bin/chainsaw`.
+*   **Hayabusa:** Download the appropriate binary for your system from the [Hayabusa Releases page](https://github.com/Yamato-Security/hayabusa/releases) and place the executable at `servers/Hayabusa/bin/hayabusa`.
+
+## 3. Initial Project Setup
 
 Follow these steps to set up the project for the first time.
 
-### Step 2.1: Create Virtual Environment
+### Step 3.1: Create Virtual Environment
 
 It is highly recommended to use a dedicated Python virtual environment. This project has been tested and stabilized with Python 3.13.
 
@@ -32,7 +51,7 @@ cd /Users/username/Desktop/Code/MCPs
 python3 -m venv venv
 ```
 
-### Step 2.2: Activate Environment and Install Dependencies
+### Step 3.2: Activate Environment and Install Dependencies
 
 Activate the new environment and install all required packages from the `requirements.txt` file.
 
@@ -44,7 +63,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Step 2.3: Start the Timesketch Backend
+### Step 3.3: Start the Timesketch Backend
 
 Timesketch requires two background processes to be running: the Celery worker and the web server.
 
@@ -74,11 +93,11 @@ python start_server.py
 
 Once these are running, you can proceed to use the MCP servers.
 
-## 3. How to Use the MCP Servers
+## 4. How to Use the MCP Servers
 
 All MCP servers are defined in `mcp_config.json` and can be called by a compatible MCP client (like the Windsurf IDE extension). The following sections provide natural language prompts to use each server's tools.
 
-### 3.1 Chainsaw Server
+### 4.1 Chainsaw Server
 
 Provides threat hunting capabilities for event logs using Sigma rules.
 
@@ -100,7 +119,7 @@ Provides threat hunting capabilities for event logs using Sigma rules.
 *   **List Available Sigma Rules (`list_sigma_rules`):**
     > "List the available Sigma rule sets for Chainsaw."
 
-### 3.2 Hayabusa Server
+### 4.2 Hayabusa Server
 
 Analyzes Windows Event Logs (`.evtx`) to create timelines and metrics.
 
@@ -119,7 +138,7 @@ Analyzes Windows Event Logs (`.evtx`) to create timelines and metrics.
 *   **Check Hayabusa Version (`hayabusa_version`):**
     > "What version of Hayabusa is installed?"
 
-### 3.3 Hindsight Server
+### 4.3 Hindsight Server
 
 Analyzes web browser history and artifacts.
 
@@ -138,7 +157,7 @@ Analyzes web browser history and artifacts.
 *   **Search Analysis Results (`search_analysis_results`):**
     > "In Hindsight analysis 'history_1', search for the term 'malicious.com'."
 
-### 3.4 Plaso Server
+### 4.4 Plaso Server
 
 Creates super timelines from various forensic artifacts.
 
@@ -151,7 +170,7 @@ Creates super timelines from various forensic artifacts.
 *   **Export a Filtered Timeline:**
     > "Using the Plaso server, export a timeline from `/path/to/output.plaso` to `/path/to/filtered_timeline.csv`, but only include events where the date is after '2025-01-01'."
 
-### 3.5 Timesketch Server
+### 4.5 Timesketch Server
 
 Handles interaction with the Timesketch timeline analysis platform.
 
@@ -164,7 +183,7 @@ Handles interaction with the Timesketch timeline analysis platform.
 *   **Upload a Timeline (`upload_timeline`):**
     > "Upload the file `/path/to/my_timeline.csv` to sketch 'My New Investigation' and name the timeline 'CSV Timeline'."
 
-## 4. Example End-to-End Workflow
+## 5. Example End-to-End Workflow
 
 This workflow demonstrates how to combine the servers to analyze Windows Event Logs and Chrome browser history, then aggregate both timelines into a single Timesketch sketch for analysis.
 
@@ -173,7 +192,7 @@ This workflow demonstrates how to combine the servers to analyze Windows Event L
 
 This single, powerful prompt will orchestrate the entire workflow, providing a unified view of the evidence for your investigation.
 
-## 5. Project Structure
+## 6. Project Structure
 
 ```
 .

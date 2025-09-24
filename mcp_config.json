@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "hindsight-forensics": {
+      "command": "/Users/ibuller/Desktop/Code/MCPs/venv/bin/python",
+      "args": ["/Users/ibuller/Desktop/Code/MCPs/servers/Hindsight/hindsight_mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "/Users/ibuller/Desktop/Code/MCPs"
+      }
+    },
+    "hayabusa": {
+      "command": "/Users/ibuller/Desktop/Code/MCPs/venv/bin/python",
+      "args": ["/Users/ibuller/Desktop/Code/MCPs/servers/Hayabusa/hayabusa_mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "/Users/ibuller/Desktop/Code/MCPs"
+      }
+    },
+    "chainsaw-mcp": {
+      "command": "/Users/ibuller/Desktop/Code/MCPs/venv/bin/python",
+      "args": ["/Users/ibuller/Desktop/Code/MCPs/servers/Chainsaw/chainsaw_mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "/Users/ibuller/Desktop/Code/MCPs"
+      }
+    },
+    "timesketch-mcp": {
+      "command": "/Users/ibuller/Desktop/Code/MCPs/venv/bin/python",
+      "args": ["/Users/ibuller/Desktop/Code/MCPs/servers/Timesketch/timesketch_mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "/Users/ibuller/Desktop/Code/MCPs"
+      }
+    },
+    "plaso-mcp": {
+      "command": "/Users/ibuller/Desktop/Code/MCPs/venv/bin/python",
+      "args": ["/Users/ibuller/Desktop/Code/MCPs/servers/Plaso/plaso_mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "/Users/ibuller/Desktop/Code/MCPs"
+      }
+    }
+  }
+}

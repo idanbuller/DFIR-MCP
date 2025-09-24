@@ -1,6 +1,6 @@
 # Unified Forensic Analysis MCP Toolkit
 
-![alt text](http://url/to/img.png)
+![](DFIR-MCP.png)
 
 ## 1. Overview
 

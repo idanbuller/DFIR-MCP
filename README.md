@@ -24,7 +24,6 @@ Before you begin, ensure you have the following dependencies installed on your s
 
 ### System-Level Dependencies
 *   **Python 3.13:** The core runtime for all MCP servers and scripts.
-*   **Git:** Required for cloning the repository and managing versions.
 *   **Docker Desktop:** Required to easily run the backend services (PostgreSQL and Redis) needed by Timesketch. The standard Timesketch `docker-compose.yml` is the recommended way to start these services.
 
 ### Python Packages

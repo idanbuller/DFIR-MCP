@@ -1,4 +1,4 @@
-# DFIR - MCP 
+# DFIR-MCP
 ## Unified Forensic Analysis MCP Toolkit
 
 ![](DFIR-MCP.png)
@@ -17,13 +17,13 @@ This repository is designed to be a shareable, all-in-one solution for a DFIR te
 *   **[Plaso](https://github.com/log2timeline/plaso)** For creating super timelines from a vast array of forensic artifacts.
 *   **[Timesketch](https://github.com/google/timesketch)** For collaborative timeline analysis and visualization.
 
-
 ## 2. Dependencies
 
 Before you begin, ensure you have the following dependencies installed on your system.
 
 ### System-Level Dependencies
 *   **Python 3.13:** The core runtime for all MCP servers and scripts.
+*   **Git:** Required for cloning the repository and managing versions.
 *   **Docker Desktop:** Required to easily run the backend services (PostgreSQL and Redis) needed by Timesketch. The standard Timesketch `docker-compose.yml` is the recommended way to start these services.
 
 ### Python Packages
@@ -101,94 +101,141 @@ All MCP servers are defined in `mcp_config.json` and can be called by a compatib
 
 Provides threat hunting capabilities for event logs using Sigma rules.
 
-*   **Run a Sigma Scan (`run_chainsaw_scan`):**
-    > "Run a Chainsaw scan on the directory `/path/to/evtx/logs`."
+*   **Run a Sigma Scan (`run_chainsaw_scan`)**
+    ```console
+    > Run a Chainsaw scan on the directory /path/to/evtx/logs.
+    ```
 
-*   **Run a Scan with a Higher Threshold:**
-    > "Run a Chainsaw scan on `/path/to/evtx/logs` with a detection level of 'critical'."
+*   **Run a Scan with a Higher Threshold**
+    ```console
+    > Run a Chainsaw scan on /path/to/evtx/logs with a detection level of 'critical'.
+    ```
 
-*   **Search Logs with a Pattern (`search_chainsaw_logs`):**
-    > "Search the logs in `/path/to/evtx/logs` for the pattern 'powershell.exe'."
+*   **Search Logs with a Pattern (`search_chainsaw_logs`)**
+    ```console
+    > Search the logs in /path/to/evtx/logs for the pattern 'powershell.exe'.
+    ```
 
-*   **Search Logs with a Regex:**
-    > "Search the logs in `/path/to/evtx/logs` with the regex `.*mimikatz.*`."
+*   **Search Logs with a Regex**
+    ```console
+    > Search the logs in /path/to/evtx/logs with the regex `.*mimikatz.*`.
+    ```
 
-*   **Dump an Artifact File (`dump_artifact`):**
-    > "Dump the artifact file `/path/to/some.evtx` in JSON format."
+*   **Dump an Artifact File (`dump_artifact`)**
+    ```console
+    > Dump the artifact file /path/to/some.evtx in JSON format.
+    ```
 
-*   **List Available Sigma Rules (`list_sigma_rules`):**
-    > "List the available Sigma rule sets for Chainsaw."
+*   **List Available Sigma Rules (`list_sigma_rules`)**
+    ```console
+    > List the available Sigma rule sets for Chainsaw.
+    ```
 
 ### 4.2 Hayabusa Server
 
 Analyzes Windows Event Logs (`.evtx`) to create timelines and metrics.
 
-*   **Create a CSV Timeline (`csv_timeline`):**
-    > "With Hayabusa, create a CSV timeline from the event logs in `/path/to/evtx/logs` and save it to `/path/to/hayabusa_timeline.csv`."
+*   **Create a CSV Timeline (`csv_timeline`)**
+    ```console
+    > With Hayabusa, create a CSV timeline from the event logs in /path/to/evtx/logs and save it to /path/to/hayabusa_timeline.csv.
+    ```
 
-*   **Create a JSON Timeline (`json_timeline`):**
-    > "Use Hayabusa to generate a JSON timeline from the logs at `/path/to/evtx/logs`."
+*   **Create a JSON Timeline (`json_timeline`)**
+    ```console
+    > Use Hayabusa to generate a JSON timeline from the logs at /path/to/evtx/logs.
+    ```
 
-*   **Get Event ID Metrics (`eid_metrics`):**
-    > "Get the Event ID metrics from the logs in `/path/to/evtx/logs` using Hayabusa."
+*   **Get Event ID Metrics (`eid_metrics`)**
+    ```console
+    > Get the Event ID metrics from the logs in /path/to/evtx/logs using Hayabusa.
+    ```
 
-*   **Get Computer Metrics (`computer_metrics`):**
-    > "Using Hayabusa, get the computer metrics for the logs at `/path/to/evtx/logs`."
+*   **Get Computer Metrics (`computer_metrics`)**
+    ```console
+    > Using Hayabusa, get the computer metrics for the logs at /path/to/evtx/logs.
+    ```
 
-*   **Check Hayabusa Version (`hayabusa_version`):**
-    > "What version of Hayabusa is installed?"
+*   **Check Hayabusa Version (`hayabusa_version`)**
+    ```console
+    > What version of Hayabusa is installed?
+    ```
 
 ### 4.3 Hindsight Server
 
 Analyzes web browser history and artifacts.
 
-*   **Analyze Browser History File (`analyze_browser_history`):**
-    > "Use the Hindsight server to analyze the Chrome history file at `/path/to/History`."
+*   **Analyze Browser History File (`analyze_browser_history`)**
+    ```console
+    > Use the Hindsight server to analyze the Chrome history file at /path/to/History.
+    ```
 
-*   **Analyze a Full Browser Profile (`analyze_chrome_profile`):**
-    > "Perform a full analysis of the Chrome profile located at `/path/to/chrome/Default`."
+*   **Analyze a Full Browser Profile (`analyze_chrome_profile`)**
+    ```console
+    > Perform a full analysis of the Chrome profile located at /path/to/chrome/Default.
+    ```
 
-*   **List Completed Analyses (`list_analyses`):**
-    > "List all completed Hindsight analyses."
+*   **List Completed Analyses (`list_analyses`)**
+    ```console
+    > List all completed Hindsight analyses.
+    ```
 
-*   **Get Analysis Summary (`get_analysis_summary`):**
-    > "Get the summary for Hindsight analysis 'history_1'."
+*   **Get Analysis Summary (`get_analysis_summary`)**
+    ```console
+    > Get the summary for Hindsight analysis 'history_1'.
+    ```
 
-*   **Search Analysis Results (`search_analysis_results`):**
-    > "In Hindsight analysis 'history_1', search for the term 'malicious.com'."
+*   **Search Analysis Results (`search_analysis_results`)**
+    ```console
+    > In Hindsight analysis 'history_1', search for the term 'malicious.com'.
+    ```
 
 ### 4.4 Plaso Server
 
 Creates super timelines from various forensic artifacts.
 
-*   **Create a Plaso Storage File (`create_timeline`):**
-    > "Using the Plaso server, create a storage file at `/path/to/output.plaso` from the source evidence at `/path/to/evidence.E01`."
+*   **Create a Plaso Storage File (`create_timeline`)**
+    ```console
+    > Using the Plaso server, create a storage file at /path/to/output.plaso from the source evidence at /path/to/evidence.E01.
+    ```
 
-*   **Export a Timeline from a Plaso File (`export_timeline`):**
-    > "With the Plaso server, export a CSV timeline from the storage file `/path/to/output.plaso` and save it to `/path/to/exported_timeline.csv`."
+*   **Export a Timeline from a Plaso File (`export_timeline`)**
+    ```console
+    > With the Plaso server, export a CSV timeline from the storage file /path/to/output.plaso and save it to /path/to/exported_timeline.csv.
+    ```
 
-*   **Export a Filtered Timeline:**
-    > "Using the Plaso server, export a timeline from `/path/to/output.plaso` to `/path/to/filtered_timeline.csv`, but only include events where the date is after '2025-01-01'."
+*   **Export a Filtered Timeline**
+    ```console
+    > Using the Plaso server, export a timeline from /path/to/output.plaso to /path/to/filtered_timeline.csv, but only include events where the date is after '2025-01-01'.
+    ```
 
 ### 4.5 Timesketch Server
 
 Handles interaction with the Timesketch timeline analysis platform.
 
-*   **List Existing Sketches (`list_sketches`):**
-    > "List all my sketches in Timesketch."
+*   **List Existing Sketches (`list_sketches`)**
+    ```console
+    > List all my sketches in Timesketch.
+    ```
 
-*   **Create a New Sketch (`create_sketch`):**
-    > "Create a new Timesketch sketch named 'My New Investigation'."
+*   **Create a New Sketch (`create_sketch`)**
+    ```console
+    > Create a new Timesketch sketch named 'My New Investigation'.
+    ```
 
-*   **Upload a Timeline (`upload_timeline`):**
-    > "Upload the file `/path/to/my_timeline.csv` to sketch 'My New Investigation' and name the timeline 'CSV Timeline'."
+*   **Upload a Timeline (`upload_timeline`)**
+    ```console
+    > Upload the file /path/to/my_timeline.csv to sketch 'My New Investigation' and name the timeline 'CSV Timeline'.
+    ```
 
 ## 5. Example End-to-End Workflow
 
 This workflow demonstrates how to combine the servers to analyze Windows Event Logs and Chrome browser history, then aggregate both timelines into a single Timesketch sketch for analysis.
 
 **Prompt:**
-> "I want to perform a full forensic analysis. First, create a new Timesketch sketch named 'Suspicious Activity Investigation'. Next, use Hayabusa to create a timeline from the event logs at `/path/to/logs`. Also, use Hindsight to analyze the Chrome history from `/path/to/History`. Finally, upload both the Hayabusa and Hindsight timelines to the new Timesketch sketch you created, naming them 'Hayabusa EVTX Timeline' and 'Hindsight Browser Timeline' respectively."
+
+```console
+> I want to perform a full forensic analysis. First, create a new Timesketch sketch named 'Suspicious Activity Investigation'. Next, use Hayabusa to create a timeline from the event logs at /path/to/logs. Also, use Hindsight to analyze the Chrome history from /path/to/History. Finally, upload both the Hayabusa and Hindsight timelines to the new Timesketch sketch you created, naming them 'Hayabusa EVTX Timeline' and 'Hindsight Browser Timeline' respectively.
+```
 
 This single, powerful prompt will orchestrate the entire workflow, providing a unified view of the evidence for your investigation.
 
